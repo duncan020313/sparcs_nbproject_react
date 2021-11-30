@@ -1,0 +1,7 @@
+.roomitem {
+    border: 2px;
+    border-style: dashed;
+    border-radius: 3px;
+    border-color: black;
+    margin: 3px;
+}
