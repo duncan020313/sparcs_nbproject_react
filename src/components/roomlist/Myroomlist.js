@@ -36,6 +36,7 @@ const Myroomlist = (props) => {
                 key={index}
                 roomName={v.roomName}
                 maxPeople={v.maxPeople}
+                restaurant={v.restaurant}
                 roomNumberofPeople={v.roomNumberofPeople}
                 onDeleteClick={()=>quitRoom(v)}/>
             ))}

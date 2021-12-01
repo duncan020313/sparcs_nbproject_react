@@ -7,36 +7,15 @@ import Roomlist from "./components/roomlist/Roomlist.js";
 import Login from "./components/login/Login.js";
 import CreateAccount from "./components/login/CreateAccount.js";
 import Myroomlist from "./components/roomlist/Myroomlist.js";
+import Navbar from "./components/navbar/Navbar.js";
+import "./App.css";
 
 function App() {
   const [userId, setUserId] = useState(false);
   return (
-    <div className = "App">
+    <div className = "App" style={{height:"100%"}}>
       <BrowserRouter>
-        <h1>Home</h1>
-        <ol>
-          <li>
-            <Link to="/">Login</Link>
-          </li>
-          <li>
-            <Link to="/createaccount">CreateAccount</Link>
-          </li>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/mkroom">mkroom</Link>
-          </li>
-          <li>
-            <Link to="/roomlist">roomlist</Link>
-          </li>
-          <li>
-            <Link to="/myroomlist">myroomlist</Link>
-          </li>
-          <li>
-            <Link to="/joinroom">joinroom</Link>
-          </li>
-        </ol>
+        <Navbar/>
         <Routes>
           <Route exact={true} path = "/" element={<Login
             setId = {(id)=>{setUserId(id)}}

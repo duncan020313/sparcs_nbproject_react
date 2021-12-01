@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css"
 
 const Login = (props) => {
     const [id, setId] = useState("");
@@ -24,14 +25,16 @@ const Login = (props) => {
         })
     }
     return(
-        <div className="login">
-            <div>
-                ID:<input value = {id} onChange={v => setId(v.target.value)}></input>
+        <div className="wrapper">
+            <div className="login">
+                <div className="idinput">
+                    ID:<input value = {id} onChange={v => setId(v.target.value)}></input>
+                </div>
+                <div className="passwordinput">
+                    PASSWORD:<input type="password" value = {password} onChange={v => setPassword(v.target.value)}></input>
+                </div>
+                <button className="loginbutton" type="submit" onClick={()=>summitClick()}>Button</button>
             </div>
-            <div>
-                PASSWORD:<input type="password" value = {password} onChange={v => setPassword(v.target.value)}></input>
-            </div>
-            <button type="submit" onClick={()=>summitClick()}>Button</button>
         </div>
     )
 }

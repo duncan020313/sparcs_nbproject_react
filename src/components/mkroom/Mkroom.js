@@ -6,6 +6,9 @@ const Mkroom = (props) => {
     const [roomName, setRoomName]  = useState('Default Room Name')
     //방 최대 인원수를 저장하는 훅
     const [maxPeople, setMaxPeople] = useState(3);
+    //식당을 저장하는 훅
+    const [restaurant, setRestaurant] = useState('Default Restaurant')
+
     const incMaxMember = () => {
         setMaxPeople(maxPeople+1);
     }
@@ -18,6 +21,7 @@ const Mkroom = (props) => {
         axios.post("/api/room/", {
             roomName: roomName,
             roomMaxPeople: maxPeople,
+            restaurant: restaurant,
             userId: props.userId
         })
         // 완료 후 목록 조회 요청 전송
@@ -27,6 +31,7 @@ const Mkroom = (props) => {
             console.log(response)
             // 입력란을 비우기
             setRoomName('Default Room Name');
+            setRestaurant('Default Restaurant')
             setMaxPeople(3);
         });
     }
@@ -38,7 +43,7 @@ const Mkroom = (props) => {
                 {maxPeople}
                 <button type="button" onClick={decMaxMember}>-</button>
             </div>
-            <textarea defaultValue="eating house name"></textarea>
+            <textarea value={restaurant} onChange={v=>setRestaurant(v.target.value)}></textarea>
             <div>
                 <button className="submitbutton" onClick={() => summitClick()}>Submit</button>
             </div>
