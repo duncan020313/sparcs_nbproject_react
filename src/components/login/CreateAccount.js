@@ -30,30 +30,32 @@ const CreateAccount = () => {
         });
     }
     return(
-        <div className="createaccount">
-            <div>
-                ID:<input value = {userInfo.id} onChange={(v)=>
-                    setUserInfo({...userInfo, id:v.target.value})}></input>
-            </div>
-            <div>
-                PASSWORD:<input value = {userInfo.password} onChange={(v)=>
-                    setUserInfo({...userInfo, password:v.target.value})}></input>
-            </div>
-            <div>
-                NAME:<input value = {userInfo.name} onChange={(v)=>
-                    setUserInfo({...userInfo, name:v.target.value})}></input>
-            </div>
-            <div>
-                ADDRESS:<input value = {userInfo.address} onChange={(v)=>
-                    setUserInfo({...userInfo, address:v.target.value})}></input>
-            </div>
-            <div>
-                ACCOUNT:<input value = {userInfo.account} onChange={(v)=>
-                    setUserInfo({...userInfo, account:v.target.value})}></input>
-            </div>
-            <div>
-                <button type="submit" onClick={()=>summitClick()}>Create Account</button>
-            </div>                
+        <div className="wrapper">
+            <div className="login">
+                <div className="iddiv">
+                    <input placeholder="ID" className="idinput" value = {userInfo.id} onChange={(v)=>
+                        setUserInfo({...userInfo, id:v.target.value})}></input>
+                </div>
+                <div className="iddiv">
+                    <input placeholder="PASSWORD" className="idinput" value = {userInfo.password} onChange={(v)=>
+                        setUserInfo({...userInfo, password:v.target.value})}></input>
+                </div>
+                <div className="iddiv">
+                    <input placeholder="NAME" className="idinput" value = {userInfo.name} onChange={(v)=>
+                        setUserInfo({...userInfo, name:v.target.value})}></input>
+                </div>
+                <div className="iddiv">
+                    <input placeholder="ADDRESS" className="idinput" value = {userInfo.address} onChange={(v)=>
+                        setUserInfo({...userInfo, address:v.target.value})}></input>
+                </div>
+                <div className="iddiv">
+                    <input placeholder="ACCOUNT" className="idinput" value = {userInfo.account} onChange={(v)=>
+                        setUserInfo({...userInfo, account:v.target.value})}></input>
+                </div>
+                <div>
+                    <button className="loginbutton" type="submit" onClick={()=>summitClick()}>Create Account</button>
+                </div>
+            </div>             
         </div>
     )
 }
