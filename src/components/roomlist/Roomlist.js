@@ -2,9 +2,9 @@ import React, { useState , useEffect} from 'react';
 import Roomitem from './Roomitem';
 import axios from 'axios';
 
-const Roomlist = () => {
+const Roomlist = (props) => {
     const [roomItems, setRoomItems] = useState([])
-        useEffect(() => {
+    useEffect(() => {
         // 목록 조회 요청 전송
         axios.get(`/api/room`)
         // 응답이 돌아오면 응답 내용으로 목록을 변경
@@ -21,9 +21,9 @@ const Roomlist = () => {
     };
     return(
         <div className="roomlist">
-            {roomItems.map((v)=>(
+            {roomItems.map((v, index)=>(
             <Roomitem
-                key={v.id}
+                key={index}
                 roomName={v.roomName}
                 maxPeople={v.maxPeople}
                 roomNumberofPeople={v.roomNumberofPeople}

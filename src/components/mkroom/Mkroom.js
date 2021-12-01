@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-const Mkroom = () => {
+const Mkroom = (props) => {
     //방 이름을 저장하는 훅
     const [roomName, setRoomName]  = useState('Default Room Name')
     //방 최대 인원수를 저장하는 훅
@@ -17,7 +17,8 @@ const Mkroom = () => {
     const summitClick = () => {
         axios.post("/api/room/", {
             roomName: roomName,
-            roomMaxPeople: maxPeople
+            roomMaxPeople: maxPeople,
+            userId: props.userId
         })
         // 완료 후 목록 조회 요청 전송
         .then(() => axios.get("/api/room/"))
