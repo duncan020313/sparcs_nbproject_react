@@ -1,6 +1,6 @@
 .roomitem {
     display: flex;
-    border: 10px;
+    border: 2px;
     border-style: solid;
     border-color: gray;
     margin: 40px;

@@ -40,9 +40,9 @@ const Myroomlist = (props) => {
     }
     return(
         <div className="roomlist">
-            {roomItems.map((v, index)=>(
+            {roomItems.map(v=>(
             <Roomitem
-                key={index}
+                key={v._id}
                 roomName={v.roomName}
                 maxPeople={v.maxPeople}
                 restaurant={v.restaurant}

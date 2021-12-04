@@ -33,7 +33,7 @@ const Roomlist = (props) => {
             axios.put(`api/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople+1}/${false}`)
             .then(()=>axios.get(`api/room`))
             .then(response=>{
-                setRoomItems(response.data)
+                setRoomItems([...response.data])
             })
         }        
     }

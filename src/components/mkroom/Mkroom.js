@@ -34,8 +34,8 @@ const Mkroom = (props) => {
         .then(() => axios.get("/api/room/"))
         // 응답이 돌아오면 응답 내용으로 목록을 변경
         .then(response => {
-            setRoomName('Default Room Name');
-            setRestaurant('Default Restaurant')
+            setRoomName("");
+            setRestaurant("")
             setMaxPeople(3);
         });
     }
