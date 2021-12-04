@@ -15,7 +15,9 @@ function App() {
   return (
     <div className = "App" style={{height:"100%"}}>
       <BrowserRouter>
-        <Navbar/>
+        {userId ? <Navbar
+          setId = {(id)=>{setUserId(id)}}
+        />:null}
         <Routes>
           <Route exact={true} path = "/" element={<Login
             setId = {(id)=>{setUserId(id)}}

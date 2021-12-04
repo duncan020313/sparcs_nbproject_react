@@ -33,7 +33,7 @@ const Joinroom = (props) => {
         })
         .then(()=>axios.get(`/api/room/getuserlist/${roomItem.roomjoinedPeople}`))
         .then(response=>{
-            console.log(response.data)
+            setUserList(response.data);
         });
     }
     let masterinfo = masterInfo.map((v)=><Masterinfo
