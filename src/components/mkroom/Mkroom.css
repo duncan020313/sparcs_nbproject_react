@@ -1,3 +1,50 @@
+.mkroom{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+.mkroominput{
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+    border: 0;
+}
+
+.mkroominput, .counter{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mkroombutton_up, .mkroombutton_down{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 20%;
+    border: 0;
+    border-radius: 10px;
+    height: 30px;
+    color: white;
+    font-size:large;
+    font-weight: bolder;
+}
+
+.mkroombutton_up{
+    background-color: green;
+}
+.mkroombutton_down{
+    background-color: tomato;
+}
+
 .submitbutton{
-    
+    width: 300px;
+    height: 30px;
+    border: 0;
+    background-color: green;
+    color: white;
+    font-size: 15px;
 }

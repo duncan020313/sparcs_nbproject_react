@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import './Roomitem.css';
-import axios from 'axios';
+
 
 const Roomitem = (props) => {
     const [roomState, setRoomState] = useState({roomName: props.roomName, 
         maxPeople: props.maxPeople, restaurant: props.restaurant, roomNumberofPeople: props.roomNumberofPeople})
     return (
         <div className="roomitem">
-            <h1>{roomState.roomName}</h1>
-            <h2>{roomState.restaurant}</h2>
-            <h2>{roomState.roomNumberofPeople}/{roomState.maxPeople}</h2>
-            <div>
-                <button onClick={props.onClick}>
+            <div className="leftbox">
+                <h1 className="roomtext">{roomState.roomName}</h1>
+                <h2 className="roomtext">{roomState.restaurant}</h2>
+            </div>
+            <div className="midbox">
+                <h1>{roomState.roomNumberofPeople}/{roomState.maxPeople}</h1>                
+            </div>
+            <div className="rightbox">
+                <button className="roombutton_del" onClick={props.onClick}>
                     {props.buttonText}
                 </button>
-                <button onClick={props.join}>
+                <button className="roombutton_join" onClick={props.join}>
                     {props.joinText}
                 </button>
             </div>

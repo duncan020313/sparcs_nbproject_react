@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
-import Chat from './Chat';
+import './Joinroom.css'
 import Masterinfo from './Masterinfo';
 import axios from 'axios';
 

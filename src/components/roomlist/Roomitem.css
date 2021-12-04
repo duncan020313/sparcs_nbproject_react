@@ -1,7 +1,39 @@
 .roomitem {
-    border: 2px;
-    border-style: dashed;
-    border-radius: 3px;
-    border-color: black;
-    margin: 3px;
+    display: flex;
+    border: 10px;
+    border-style: solid;
+    border-color: gray;
+    margin: 40px;
+}
+.leftbox {
+    width: 70%;
+}
+.midbox {
+    font-size: 20pt;
+    font-weight: bolder;
+    display: block;
+    width: 15%;
+    text-align: center;
+}
+.rightbox{
+    width: 15%;
+}
+.roomtext{
+    margin-left: 10px;
+    font-weight: bolder;
+}
+.roombutton_del, .roombutton_join{
+    width:100%;
+    height: 50%;
+    border: 0;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 0;
+}
+.roombutton_del{
+    background-color: tomato;
+}
+.roombutton_join{
+    background-color: green;
 }

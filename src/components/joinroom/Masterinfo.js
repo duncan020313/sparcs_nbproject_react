@@ -10,19 +10,19 @@ const Masterinfo = (props) => {
     return (
         <div>
             <h1>
-                Room Name : {roomInfo.roomName}
+                {roomInfo.roomName}
             </h1>
             <h2>
-                Restaurant : {roomInfo.roomRestaurant}
+                {roomInfo.roomRestaurant}
             </h2>
             <h3>
-                Master Name : {roomInfo.masterName}
+                방장 : {roomInfo.masterName}
             </h3>
             <h3>
-                Master address : {roomInfo.masterAddress}
+                방장 주소 : {roomInfo.masterAddress}
             </h3>
             <h3>
-                Master account : {roomInfo.masterAccount}
+                방장 계좌 : {roomInfo.masterAccount}
             </h3>
         </div>
     );
