@@ -1,7 +1,4 @@
 .joinroom{
-    display: flex;
-    justify-content: center;
+    width: 30%;
     text-align: center;
-    width: 100%;
-    height: 95%;
 }
