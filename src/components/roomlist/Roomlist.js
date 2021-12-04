@@ -20,11 +20,10 @@ const Roomlist = (props) => {
         })
     };
     const joinRoom = (roomItem) => {
-        console.log(props.userId)
         if(!props.userId){
             alert("로그인 해 주세요")
         }        
-        else if(props.userId in roomItem.roomjoinedPeople){
+        else if(roomItem.roomjoinedPeople.includes(props.userId)){
             alert("이미 입장한 방 입니다")
         }
         else if(roomItem.roomjoinedPeople>=roomItem.maxPeople){
@@ -39,16 +38,16 @@ const Roomlist = (props) => {
         }        
     }
 
-    let roomitemlist = roomItems.map((v, index)=>(
+    let roomitemlist = roomItems.map(v=>(
         <Roomitem
-            key={index}
+            key={v._id}
             roomName={v.roomName}
             maxPeople={v.maxPeople}
             restaurant={v.restaurant}
             roomNumberofPeople={v.roomNumberofPeople}
-            buttonText={"RemoveRoom"}
+            buttonText={"방 삭제하기"}
             onClick={()=>removeRoom(v)}
-            joinText={"Join"}
+            joinText={"방 입장하기"}
             join={()=>joinRoom(v)}/>
         )
     )

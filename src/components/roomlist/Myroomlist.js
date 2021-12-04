@@ -1,9 +1,12 @@
 import React, { useState , useEffect} from 'react';
 import Roomitem from './Roomitem';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Myroomlist = (props) => {
-    const [roomItems, setRoomItems] = useState([])
+    const [roomItems, setRoomItems] = useState([]);
+    const navigate = useNavigate();
+
     useEffect(() => {
         // 목록 조회 요청 전송
         axios.get(`/api/room/${props.userId}`)
@@ -26,8 +29,15 @@ const Myroomlist = (props) => {
                 console.log(response.data)
                 setRoomItems(response.data);
             })
-        }        
+        }
     };
+    const roomInfo = (roomItem) => {
+        navigate(`/joinroom`, {
+            state : {
+                roomItem: roomItem,
+            }
+        })
+    }
     return(
         <div className="roomlist">
             {roomItems.map((v, index)=>(
@@ -37,7 +47,9 @@ const Myroomlist = (props) => {
                 maxPeople={v.maxPeople}
                 restaurant={v.restaurant}
                 roomNumberofPeople={v.roomNumberofPeople}
-                buttonText={"Quit"}
+                buttonText={"방 나가기"}
+                joinText={"방 정보보기"}
+                join={()=>roomInfo(v)}
                 onClick={()=>quitRoom(v)}/>
             ))}
         </div>

@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Masterinfo = () => {
-    const [master, setMaster] = useState({name:'default name', 
-    address:'default address', account:'default account'});
+const Masterinfo = (props) => {
+    const [roomInfo, setRoomInfo] = useState({roomName:props.roomName, 
+        roomRestaurant: props.roomRestaurant,
+        masterName:props.userName,
+        masterAddress:props.userAddress,
+        masterAccount:props.userAccount,
+    });
     return (
         <div>
             <h1>
-                Master Name : {master.name}
+                Room Name : {roomInfo.roomName}
             </h1>
+            <h2>
+                Restaurant : {roomInfo.roomRestaurant}
+            </h2>
             <h3>
-                Master address : {master.address}
+                Master Name : {roomInfo.masterName}
             </h3>
             <h3>
-                Master account : {master.account}
+                Master address : {roomInfo.masterAddress}
+            </h3>
+            <h3>
+                Master account : {roomInfo.masterAccount}
             </h3>
         </div>
     );

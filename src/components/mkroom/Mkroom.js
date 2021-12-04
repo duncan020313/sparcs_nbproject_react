@@ -3,11 +3,11 @@ import axios from "axios";
 
 const Mkroom = (props) => {
     //방 이름을 저장하는 훅
-    const [roomName, setRoomName]  = useState('Default Room Name')
+    const [roomName, setRoomName]  = useState('Default Room Name');
     //방 최대 인원수를 저장하는 훅
     const [maxPeople, setMaxPeople] = useState(3);
     //식당을 저장하는 훅
-    const [restaurant, setRestaurant] = useState('Default Restaurant')
+    const [restaurant, setRestaurant] = useState('Default Restaurant');
 
     const incMaxMember = () => {
         setMaxPeople(maxPeople+1);
@@ -22,7 +22,7 @@ const Mkroom = (props) => {
             roomName: roomName,
             roomMaxPeople: maxPeople,
             restaurant: restaurant,
-            userId: props.userId
+            userId: props.userId,
         })
         // 완료 후 목록 조회 요청 전송
         .then(() => axios.get("/api/room/"))
