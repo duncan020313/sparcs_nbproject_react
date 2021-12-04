@@ -13,18 +13,17 @@ const Myroomlist = (props) => {
         });
     }, []);
     const quitRoom = (roomItem) => {
-        console.log(roomItem)
         if(roomItem.roomNumberofPeople===1){
-            
             axios.delete(`api/room/${roomItem._id}`)
             .then(()=>axios.get(`api/room/${props.userId}`))
             .then(response => {
                 setRoomItems(response.data);
             })
         }else{
-            axios.delete(`api/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople-1}`)
+            axios.put(`api/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople-1}/${true}`)
             .then(()=>axios.get(`/api/room/${props.userId}`))
             .then(response => {
+                console.log(response.data)
                 setRoomItems(response.data);
             })
         }        
@@ -38,7 +37,8 @@ const Myroomlist = (props) => {
                 maxPeople={v.maxPeople}
                 restaurant={v.restaurant}
                 roomNumberofPeople={v.roomNumberofPeople}
-                onDeleteClick={()=>quitRoom(v)}/>
+                buttonText={"Quit"}
+                onClick={()=>quitRoom(v)}/>
             ))}
         </div>
     )

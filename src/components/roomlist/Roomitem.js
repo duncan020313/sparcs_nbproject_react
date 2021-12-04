@@ -11,8 +11,11 @@ const Roomitem = (props) => {
             <h2>{roomState.restaurant}</h2>
             <h2>{roomState.roomNumberofPeople}/{roomState.maxPeople}</h2>
             <div>
-                <button onClick={props.onDeleteClick}>
-                    Remove
+                <button onClick={props.onClick}>
+                    {props.buttonText}
+                </button>
+                <button onClick={props.join}>
+                    {props.joinText}
                 </button>
             </div>
         </div>
