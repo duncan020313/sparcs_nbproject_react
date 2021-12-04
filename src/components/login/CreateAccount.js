@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const CreateAccount = () => {
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState({
         id:"",
         password:"",
@@ -27,6 +29,9 @@ const CreateAccount = () => {
                 account:"",
                 address:"",
             })
+        })
+        .then(()=>{
+            navigate('/')
         });
     }
     return(
