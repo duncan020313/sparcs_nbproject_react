@@ -16,3 +16,17 @@ div.navbar{
     color:white;
     text-decoration: none;
 }
+
+.logoutitem{
+    position: absolute;
+    margin-left: 80%;
+    background-color: transparent;
+    border: hidden;
+    width: 20%;
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
+    height: 5%;
+    padding: 0;
+    font-size: large;
+}
