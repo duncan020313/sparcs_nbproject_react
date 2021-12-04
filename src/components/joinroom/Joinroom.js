@@ -14,21 +14,18 @@ const Joinroom = (props) => {
     useEffect(()=>{
         axios.get(`/api/user/${roomItem.masterUserId}`)
         .then(response => {
-            const newinfo = [...response.data]
-            setMasterInfo(newinfo);
+            setMasterInfo(response.data);
         })
         .then(()=>axios.get(`/api/room/getuserlist/${roomItem.roomjoinedPeople}`))
         .then(response=>{
-            const newinfo = [...response.data]
-            setUserList(newinfo)
+            setUserList(response.data)
         });
     }, [])
     const setRoomMaster = (v) => {
         axios.put(`/api/room/${v._id}/${roomItem._id}`)
         .then(()=>axios.get(`/api/user/${v._id}`))
         .then(response => {
-            const newinfo = [...response.data]
-            setMasterInfo(newinfo);
+            setMasterInfo(response.data);
         })
         .then(()=>axios.get(`/api/room/findoneroom/${roomItem._id}`))
         .then(response => {
@@ -36,9 +33,7 @@ const Joinroom = (props) => {
         })
         .then(()=>axios.get(`/api/room/getuserlist/${roomItem.roomjoinedPeople}`))
         .then(response=>{
-            const newinfo = [...response.data]
-            setUserList(newinfo)
-            console.log(masterInfo)
+            console.log(response.data)
         });
     }
     let masterinfo = masterInfo.map((v)=><Masterinfo
