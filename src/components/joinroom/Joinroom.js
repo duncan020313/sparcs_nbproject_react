@@ -22,6 +22,7 @@ const Joinroom = (props) => {
         });
     }, [])
     const setRoomMaster = (v) => {
+        console.log(v)
         axios.put(`/api/room/${v._id}/${roomItem._id}`)
         .then(()=>axios.get(`/api/user/${v._id}`))
         .then(response => {
@@ -33,7 +34,7 @@ const Joinroom = (props) => {
         })
         .then(()=>axios.get(`/api/room/getuserlist/${roomItem.roomjoinedPeople}`))
         .then(response=>{
-            setUserList(response.data);
+            setUserList(response.data);            
         });
     }
     let masterinfo = masterInfo.map((v)=><Masterinfo

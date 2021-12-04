@@ -16,8 +16,8 @@ const CreateAccount = () => {
             userId: userInfo.id,
             userPassword: userInfo.password,
             userName: userInfo.name,
-            userAddress: userInfo.account,
-            userAccount: userInfo.address,
+            userAddress: userInfo.address,
+            userAccount: userInfo.account,
         })
         .then(() => axios.get("/api/user/"))
         .then(response => {

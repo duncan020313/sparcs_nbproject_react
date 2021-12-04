@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import './Mkroom.css';
+import { useNavigate } from 'react-router';
 
 const Mkroom = (props) => {
+    const navigate = useNavigate();
     //방 이름을 저장하는 훅
     const [roomName, setRoomName]  = useState('');
     //방 최대 인원수를 저장하는 훅
@@ -24,20 +26,26 @@ const Mkroom = (props) => {
 
     //제출버튼을 눌렀을 때 방 정보를 서버 db로 넘겨주는 함수
     const summitClick = () => {
-        axios.post("/api/room/", {
-            roomName: roomName,
-            roomMaxPeople: maxPeople,
-            restaurant: restaurant,
-            userId: props.userId,
-        })
-        // 완료 후 목록 조회 요청 전송
-        .then(() => axios.get("/api/room/"))
-        // 응답이 돌아오면 응답 내용으로 목록을 변경
-        .then(response => {
-            setRoomName("");
-            setRestaurant("")
-            setMaxPeople(3);
-        });
+        if(roomName=='' || restaurant==''){
+            alert('방 이름과 식당 이름을 입력해주세요')
+        }
+        else{
+            axios.post("/api/room/", {
+                roomName: roomName,
+                roomMaxPeople: maxPeople,
+                restaurant: restaurant,
+                userId: props.userId,
+            })
+            // 완료 후 목록 조회 요청 전송
+            .then(() => axios.get("/api/room/"))
+            // 응답이 돌아오면 응답 내용으로 목록을 변경
+            .then(response => {
+                setRoomName("");
+                setRestaurant("")
+                setMaxPeople(3);
+                navigate('/roomlist')
+            });
+        }
     }
     return(
         <div className="wrapper">
