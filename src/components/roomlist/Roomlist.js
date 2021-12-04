@@ -1,8 +1,10 @@
 import React, { useState , useEffect} from 'react';
 import Roomitem from './Roomitem';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Roomlist = (props) => {
+    const navigate = useNavigate();
     const [roomItems, setRoomItems] = useState([])
     useEffect(() => {
         // 목록 조회 요청 전송
@@ -34,6 +36,14 @@ const Roomlist = (props) => {
             .then(()=>axios.get(`api/room`))
             .then(response=>{
                 setRoomItems([...response.data])
+            })
+            .then(()=>axios.get(`/api/room/findoneroom/${roomItem._id}`))
+            .then(response=>{
+                navigate(`/joinroom`, {
+                    state : {
+                        roomItem: response.data,
+                    }
+                })
             })
         }        
     }
