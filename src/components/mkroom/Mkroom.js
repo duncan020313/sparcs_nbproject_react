@@ -30,14 +30,14 @@ const Mkroom = (props) => {
             alert('방 이름과 식당 이름을 입력해주세요')
         }
         else{
-            axios.post("/api/room/", {
+            axios.post("http://ssal.sparcs.org:32132/room/", {
                 roomName: roomName,
                 roomMaxPeople: maxPeople,
                 restaurant: restaurant,
                 userId: props.userId,
             })
             // 완료 후 목록 조회 요청 전송
-            .then(() => axios.get("/api/room/"))
+            .then(() => axios.get("http://ssal.sparcs.org:32132/room/"))
             // 응답이 돌아오면 응답 내용으로 목록을 변경
             .then(response => {
                 setRoomName("");

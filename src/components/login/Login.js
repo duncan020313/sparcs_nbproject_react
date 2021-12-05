@@ -9,7 +9,7 @@ const Login = (props) => {
     const navigate = useNavigate();
 
     const summitClick = () => {
-        axios.get(`/api/user/${id}/${password}`)
+        axios.get(`http://ssal.sparcs.org:32132/user/${id}/${password}`)
         .then(response => {            
             if(response.data.length!==1){
                 alert("Login Failed")

@@ -8,7 +8,7 @@ const Roomlist = (props) => {
     const [roomItems, setRoomItems] = useState([])
     useEffect(() => {
         // 목록 조회 요청 전송
-        axios.get(`/api/room`)
+        axios.get(`http://ssal.sparcs.org:32132/room`)
         // 응답이 돌아오면 응답 내용으로 목록을 변경
         .then(response => {
             setRoomItems(response.data);
@@ -32,12 +32,12 @@ const Roomlist = (props) => {
             alert("이미 제한인원이 찬 방입니다")
         }
         else{            
-            axios.put(`api/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople+1}/${false}`)
+            axios.put(`http://ssal.sparcs.org:32132/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople+1}/${false}`)
             .then(()=>axios.get(`api/room`))
             .then(response=>{
                 setRoomItems([...response.data])
             })
-            .then(()=>axios.get(`/api/room/findoneroom/${roomItem._id}`))
+            .then(()=>axios.get(`http://ssal.sparcs.org:32132/room/findoneroom/${roomItem._id}`))
             .then(response=>{
                 navigate(`/joinroom`, {
                     state : {

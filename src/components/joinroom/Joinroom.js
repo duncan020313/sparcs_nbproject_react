@@ -12,27 +12,27 @@ const Joinroom = (props) => {
     const [masterInfo, setMasterInfo] = useState([]);
     const [userList, setUserList] = useState([]);
     useEffect(()=>{
-        axios.get(`/api/user/${roomItem.masterUserId}`)
+        axios.get(`http://ssal.sparcs.org:32132/user/${roomItem.masterUserId}`)
         .then(response => {
             setMasterInfo(response.data);
         })
-        .then(()=>axios.get(`/api/room/getuserlist/${roomItem.roomjoinedPeople}`))
+        .then(()=>axios.get(`http://ssal.sparcs.org:32132/room/getuserlist/${roomItem.roomjoinedPeople}`))
         .then(response=>{
             setUserList(response.data)
         });
     }, [])
     const setRoomMaster = (v) => {
         console.log(v)
-        axios.put(`/api/room/${v._id}/${roomItem._id}`)
-        .then(()=>axios.get(`/api/user/${v._id}`))
+        axios.put(`http://ssal.sparcs.org:32132/room/${v._id}/${roomItem._id}`)
+        .then(()=>axios.get(`http://ssal.sparcs.org:32132/user/${v._id}`))
         .then(response => {
             setMasterInfo(response.data);
         })
-        .then(()=>axios.get(`/api/room/findoneroom/${roomItem._id}`))
+        .then(()=>axios.get(`http://ssal.sparcs.org:32132/room/findoneroom/${roomItem._id}`))
         .then(response => {
             setRoomItem(response.data);
         })
-        .then(()=>axios.get(`/api/room/getuserlist/${roomItem.roomjoinedPeople}`))
+        .then(()=>axios.get(`http://ssal.sparcs.org:32132/room/getuserlist/${roomItem.roomjoinedPeople}`))
         .then(response=>{
             setUserList(response.data);            
         });

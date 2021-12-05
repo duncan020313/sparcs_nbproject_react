@@ -12,14 +12,14 @@ const CreateAccount = () => {
         address:"",
     })
     const summitClick = () => {
-        axios.post(`/api/user/`, {
+        axios.post(`http://ssal.sparcs.org:32132/user/`, {
             userId: userInfo.id,
             userPassword: userInfo.password,
             userName: userInfo.name,
             userAddress: userInfo.address,
             userAccount: userInfo.account,
         })
-        .then(() => axios.get("/api/user/"))
+        .then(() => axios.get("http://ssal.sparcs.org:32132/user/"))
         .then(response => {
             console.log(response)
             setUserInfo({

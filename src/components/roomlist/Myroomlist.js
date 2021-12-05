@@ -9,7 +9,7 @@ const Myroomlist = (props) => {
 
     useEffect(() => {
         // 목록 조회 요청 전송
-        axios.get(`/api/room/${props.userId}`)
+        axios.get(`http://ssal.sparcs.org:32132/room/${props.userId}`)
         // 응답이 돌아오면 응답 내용으로 목록을 변경
         .then(response => {
             setRoomItems(response.data);
@@ -24,7 +24,7 @@ const Myroomlist = (props) => {
             })
         }else{
             axios.put(`api/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople-1}/${true}`)
-            .then(()=>axios.get(`/api/room/${props.userId}`))
+            .then(()=>axios.get(`http://ssal.sparcs.org:32132/room/${props.userId}`))
             .then(response => {
                 console.log(response.data)
                 setRoomItems(response.data);
