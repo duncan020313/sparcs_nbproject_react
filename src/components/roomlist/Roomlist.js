@@ -15,8 +15,8 @@ const Roomlist = (props) => {
         });
     }, []);
     const removeRoom = (roomItem) => {
-        axios.delete(`api/room/${roomItem._id}`)
-        .then(()=>axios.get(`api/room`))
+        axios.delete(`http://ssal.sparcs.org:32132/room/${roomItem._id}`)
+        .then(()=>axios.get(`http://ssal.sparcs.org:32132/room`))
         .then(response => {
             setRoomItems(response.data);
         })
