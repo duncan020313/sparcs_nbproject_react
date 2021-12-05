@@ -17,13 +17,13 @@ const Myroomlist = (props) => {
     }, []);
     const quitRoom = (roomItem) => {
         if(roomItem.roomNumberofPeople===1){
-            axios.delete(`api/room/${roomItem._id}`)
+            axios.delete(`http://ssal.sparcs.org:32132/room/${roomItem._id}`)
             .then(()=>axios.get(`api/room/${props.userId}`))
             .then(response => {
                 setRoomItems(response.data);
             })
         }else{
-            axios.put(`api/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople-1}/${true}`)
+            axios.put(`http://ssal.sparcs.org:32132/room/${props.userId}/${roomItem._id}/${roomItem.roomNumberofPeople-1}/${true}`)
             .then(()=>axios.get(`http://ssal.sparcs.org:32132/room/${props.userId}`))
             .then(response => {
                 console.log(response.data)
