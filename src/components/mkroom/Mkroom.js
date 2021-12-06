@@ -48,7 +48,7 @@ const Mkroom = (props) => {
         }
     }
     return(
-        <div className="wrapper">
+        <div className="wrapper" style={{height: "95%"}}>
             <div className="mkroom">
                 <div>
                     <input className="mkroominput" placeholder="방 이름" value={roomName} onChange={v => setRoomName(v.target.value)}></input>
